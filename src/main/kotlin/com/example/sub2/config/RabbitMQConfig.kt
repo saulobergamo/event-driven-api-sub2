@@ -1,4 +1,4 @@
-package com.example.sub1.config
+package com.example.sub2.config
 
 import org.springframework.amqp.core.Binding
 import org.springframework.amqp.core.BindingBuilder
@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class RabbitMQConfig {
 
-    @Value("\${spring.rabbitmq.name.queue1}")
-    private lateinit var queue1: String
+    @Value("\${spring.rabbitmq.name.queue2}")
+    private lateinit var queue2: String
 
     @Value("\${spring.rabbitmq.name.exchange}")
     private lateinit var exchange: String
@@ -27,12 +27,12 @@ class RabbitMQConfig {
         return FanoutExchange(exchange)
     }
     @Bean
-    fun queue1(): Queue {
-        return Queue(queue1)
+    fun queue2(): Queue {
+        return Queue(queue2)
     }
 
     @Bean
     fun bindingQueue1ToFanoutExchange(): Binding {
-        return BindingBuilder.bind(queue1()).to(fanoutExchange())
+        return BindingBuilder.bind(queue2()).to(fanoutExchange())
     }
 }

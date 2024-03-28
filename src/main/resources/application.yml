@@ -1,7 +1,7 @@
 server:
-  port: 9083
+  port: 9084
   servlet:
-    contextPath: /event-driven-api-sub1
+    contextPath: /event-driven-api-sub2
 
 spring:
   data:
@@ -13,8 +13,8 @@ spring:
     username: guest
     password: guest
     name:
-      queue1: event-driven-api-queue1
+      queue2: event-driven-api-queue2
       exchange: event-driven-api-fanout
 
   application:
-    name: event-driven-api-sub1
+    name: event-driven-api-sub2
