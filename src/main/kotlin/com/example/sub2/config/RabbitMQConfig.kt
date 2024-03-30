@@ -11,8 +11,8 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class RabbitMQConfig {
 
-    @Value("\${spring.rabbitmq.name.queue2}")
-    private lateinit var queue2: String
+    @Value("\${spring.rabbitmq.name.queue}")
+    private lateinit var queue: String
 
     @Value("\${spring.rabbitmq.name.exchange}")
     private lateinit var exchange: String
@@ -20,15 +20,14 @@ class RabbitMQConfig {
 //    in case we have a direct exchange its necessary to configure
 //    a routing key to bind a queue to a specific exchange
 //    @Value("\${spring.rabbitmq.queue.routing.key}")
-//    private lateinit var routingKey : String
-
+//    private lateinit var routingKey: String
     @Bean
     fun fanoutExchange(): FanoutExchange {
         return FanoutExchange(exchange)
     }
     @Bean
     fun queue2(): Queue {
-        return Queue(queue2)
+        return Queue(queue)
     }
 
     @Bean
